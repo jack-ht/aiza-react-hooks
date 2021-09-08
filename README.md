@@ -13,13 +13,13 @@
 1.  First install by run
 
     ```bash
-    yarn add @htsoft/aiza-react-hooks
+    yarn add @htsoft/reactjs-hooks
     ```
 
 1.  Import and use the hooks in your react:
 
     ```ts
-    import { useNFT, useNFTMetadata } from '@htsoft/aiza-react-hooks';
+    import { useNFT, useNFTMetadata } from '@htsoft/reactjs-hooks';
 
     function MyNFT() {
       const { data } = useNFT('88');
@@ -45,7 +45,7 @@
 1.  Network configuration is wrapped by `NFTFetchConfiguration` component.
 
       ```ts
-      import { NFTFetchConfiguration } from '@htsoft/aiza-react-hooks';
+      import { NFTFetchConfiguration } from '@htsoft/reactjs-hooks';
       ```
 
 ## Data is fetched from:
