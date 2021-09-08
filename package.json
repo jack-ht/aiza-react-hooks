@@ -1,14 +1,14 @@
 {
   "name": "@htsoft/aiza-react-hooks",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "NFT information hepler for ReactJS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jack-ht/aiza-react-hooks.git"
   },
   "homepage": "https://github.com/jack-ht/aiza-react-hooks#README",
-  "author": "Aiza",
-  "license": "MIT",
+  "author": "Jack",
+  "license": "GPL-3.0-or-later",
   "private": false,
   "typings": "dist/index.d.ts",
   "source": "src/index.ts",
