@@ -53,5 +53,8 @@
     "Dapp",
     "SmartContract",
     "BlockChain"
-  ]
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  }
 }
