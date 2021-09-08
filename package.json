@@ -1,0 +1,45 @@
+{
+  "name": "@htsoft/aiza-react-hooks",
+  "version": "0.1.0",
+  "description": "Generic Rendering Component for zNFTs",
+  "repository": "https://github.com/jack-ht/aiza-react-hooks",
+  "homepage": "https://github.com/jack-ht/aiza-react-hooks#README",
+  "author": "Aiza",
+  "license": "MIT",
+  "private": false,
+  "typings": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "publish": "npm publish --access public",
+    "publish-prerelease" : "npm publish --access public --tag=pre-release"
+  },
+  "dependencies": {
+    "@ethersproject/address": "^5.4.0",
+    "big.js": "^6.1.0",
+    "cross-fetch": "^3.1.4",
+    "dataloader": "^2.0.0",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "node-abort-controller": "^2.0.0",
+    "react": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "swr": "^0.5.6",
+    "tslib": "^2.2.0"
+  },
+  "lint-staged": {
+    "*.{ts,md}": "prettier src --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 90
+  }
+}
