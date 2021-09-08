@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RequestError = exports.FetchStaticData = exports.DataTransformers = exports.Networks = exports.AuctionStateInfo = exports.AuctionType = exports.MediaFetchAgent = exports.NFTFetchConfiguration = exports.useAizaUsername = exports.useOpenseaNFT = exports.useNFTIndexerQuery = exports.useNFTIndexer = exports.useZNFTGroup = exports.useZNFT = exports.useNFTMetadata = exports.useNFTContent = exports.useNFT = exports.useAuctions = void 0;
+exports.RequestError = exports.FetchStaticData = exports.DataTransformers = exports.Networks = exports.AuctionStateInfo = exports.AuctionType = exports.MediaFetchAgent = exports.NFTFetchConfiguration = exports.useAizaUsername = exports.useOpenseaNFT = exports.useNFTIndexerQuery = exports.useNFTIndexer = exports.useAizaNFTGroup = exports.useAizaNFT = exports.useNFTMetadata = exports.useNFTContent = exports.useNFT = exports.useAuctions = void 0;
 const tslib_1 = require("tslib");
 const networks_1 = require("./constants/networks");
 Object.defineProperty(exports, "Networks", { enumerable: true, get: function () { return networks_1.Networks; } });
 const useNFT_1 = require("./hooks/useNFT");
 Object.defineProperty(exports, "useNFT", { enumerable: true, get: function () { return useNFT_1.useNFT; } });
-const useZNFT_1 = require("./hooks/useZNFT");
-Object.defineProperty(exports, "useZNFT", { enumerable: true, get: function () { return useZNFT_1.useZNFT; } });
+const useAizaNFT_1 = require("./hooks/useAizaNFT");
+Object.defineProperty(exports, "useAizaNFT", { enumerable: true, get: function () { return useAizaNFT_1.useAizaNFT; } });
 const useOpenseaNFT_1 = require("./hooks/useOpenseaNFT");
 Object.defineProperty(exports, "useOpenseaNFT", { enumerable: true, get: function () { return useOpenseaNFT_1.useOpenseaNFT; } });
 const useNFTContent_1 = require("./hooks/useNFTContent");
@@ -32,8 +32,8 @@ const FetchStaticData = (0, tslib_1.__importStar)(require("./fetcher/FetchStatic
 exports.FetchStaticData = FetchStaticData;
 const RequestError_1 = require("./fetcher/RequestError");
 Object.defineProperty(exports, "RequestError", { enumerable: true, get: function () { return RequestError_1.RequestError; } });
-const useZNFTGroup_1 = require("./hooks/useZNFTGroup");
-Object.defineProperty(exports, "useZNFTGroup", { enumerable: true, get: function () { return useZNFTGroup_1.useZNFTGroup; } });
+const useAizaNFTGroup_1 = require("./hooks/useAizaNFTGroup");
+Object.defineProperty(exports, "useAizaNFTGroup", { enumerable: true, get: function () { return useAizaNFTGroup_1.useAizaNFTGroup; } });
 const useNFTIndexer_1 = require("./hooks/useNFTIndexer");
 Object.defineProperty(exports, "useNFTIndexer", { enumerable: true, get: function () { return useNFTIndexer_1.useNFTIndexer; } });
 const useNFTIndexerQuery_1 = require("./hooks/useNFTIndexerQuery");

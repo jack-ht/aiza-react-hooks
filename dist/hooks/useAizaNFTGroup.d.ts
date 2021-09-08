@@ -17,5 +17,5 @@ declare type OptionsType = {
  * @param options SWR flags and an option to load currency info
  * @returns useNFTType hook results include loading, error, and chainNFT data.
  */
-export declare function useZNFTGroup(ids?: string[], type?: FetchGroupTypes, options?: OptionsType): useZNFTType;
+export declare function useAizaNFTGroup(ids?: string[], type?: FetchGroupTypes, options?: OptionsType): useZNFTType;
 export {};

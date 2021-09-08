@@ -16,5 +16,5 @@ declare type OptionsType = {
  * @param options SWR flags and an option to load currency info
  * @returns useNFTType hook results include loading, error, and chainNFT data.
  */
-export declare function useZNFT(id?: string, options?: OptionsType): useZNFTType;
+export declare function useAizaNFT(id?: string, options?: OptionsType): useZNFTType;
 export {};

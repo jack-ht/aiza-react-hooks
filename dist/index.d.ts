@@ -1,6 +1,6 @@
 import { Networks, NetworkIDs } from './constants/networks';
 import { useNFT, useNFTType } from './hooks/useNFT';
-import { useZNFT, useZNFTType } from './hooks/useZNFT';
+import { useAizaNFT, useZNFTType } from './hooks/useAizaNFT';
 import { useOpenseaNFT, useOpenseaNFTType } from './hooks/useOpenseaNFT';
 import { useNFTContent, useNFTContentType } from './hooks/useNFTContent';
 import { useNFTMetadata, useNFTMetadataType } from './hooks/useNFTMetadata';
@@ -14,7 +14,7 @@ import { AuctionStateInfo } from './fetcher/AuctionState';
 import * as DataTransformers from './fetcher/DataTransformers';
 import * as FetchStaticData from './fetcher/FetchStaticData';
 import { RequestError } from './fetcher/RequestError';
-import { useZNFTGroup } from './hooks/useZNFTGroup';
+import { useAizaNFTGroup } from './hooks/useAizaNFTGroup';
 import { useNFTIndexer } from './hooks/useNFTIndexer';
 import { useNFTIndexerQuery } from './hooks/useNFTIndexerQuery';
-export { useAuctions, useNFT, useNFTContent, useNFTMetadata, useZNFT, useZNFTGroup, useNFTIndexer, useNFTIndexerQuery, useOpenseaNFT, useAizaUsername, useNFTContentType, useNFTMetadataType, useNFTType, useOpenseaNFTType, useZNFTType, PricingInfo, NFTFetchConfiguration, MediaFetchAgent, AuctionResultType, AuctionType, AuctionStateInfo, NFTDataType, ChainCurrencyType, Networks, NetworkIDs, DataTransformers, FetchStaticData, RequestError, };
+export { useAuctions, useNFT, useNFTContent, useNFTMetadata, useAizaNFT, useAizaNFTGroup, useNFTIndexer, useNFTIndexerQuery, useOpenseaNFT, useAizaUsername, useNFTContentType, useNFTMetadataType, useNFTType, useOpenseaNFTType, useZNFTType, PricingInfo, NFTFetchConfiguration, MediaFetchAgent, AuctionResultType, AuctionType, AuctionStateInfo, NFTDataType, ChainCurrencyType, Networks, NetworkIDs, DataTransformers, FetchStaticData, RequestError, };

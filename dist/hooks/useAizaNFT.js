@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useZNFT = void 0;
+exports.useAizaNFT = void 0;
 const tslib_1 = require("tslib");
 const react_1 = require("react");
 const swr_1 = (0, tslib_1.__importDefault)(require("swr"));
@@ -14,7 +14,7 @@ const ExtractResultData_1 = require("../fetcher/ExtractResultData");
  * @param options SWR flags and an option to load currency info
  * @returns useNFTType hook results include loading, error, and chainNFT data.
  */
-function useZNFT(id, options = {}) {
+function useAizaNFT(id, options = {}) {
     const fetcher = (0, react_1.useContext)(NFTFetchContext_1.NFTFetchContext);
     const { loadCurrencyInfo = false, refreshInterval, initialData } = options || {};
     const nftData = (0, swr_1.default)(id ? ['loadZNFTDataUntransformed', id] : null, (_, id) => fetcher.loadZNFTDataUntransformed(id), { refreshInterval, dedupingInterval: 0 });
@@ -43,4 +43,4 @@ function useZNFT(id, options = {}) {
         data,
     };
 }
-exports.useZNFT = useZNFT;
+exports.useAizaNFT = useAizaNFT;

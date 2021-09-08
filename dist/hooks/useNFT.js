@@ -5,7 +5,7 @@ const react_1 = require("react");
 const NFTFetchContext_1 = require("../context/NFTFetchContext");
 const useOpenseaNFT_1 = require("./useOpenseaNFT");
 const addresses_1 = require("../constants/addresses");
-const useZNFT_1 = require("./useZNFT");
+const useAizaNFT_1 = require("./useAizaNFT");
 const useNFTIndexer_1 = require("./useNFTIndexer");
 /**
  * Fetches on-chain NFT data and pricing for the given zNFT id
@@ -23,7 +23,7 @@ function useNFT(contractAddress, tokenId, options = {}) {
     const isAizaContractAddress = contractAddress === addresses_1.AIZA_MEDIA_CONTRACT_BY_NETWORK[fetcher.networkId];
     const openseaNFT = (0, useOpenseaNFT_1.useOpenseaNFT)(!options.useBetaIndexer && !isAizaContractAddress ? contractAddress : undefined, !options.useBetaIndexer && !isAizaContractAddress ? tokenId : undefined, options);
     const betaIndexerNFT = (0, useNFTIndexer_1.useNFTIndexer)(options.useBetaIndexer ? contractAddress : undefined, options.useBetaIndexer ? tokenId : undefined, options);
-    const aizaNFT = (0, useZNFT_1.useZNFT)(!options.useBetaIndexer && isAizaContractAddress ? tokenId : undefined, options);
+    const aizaNFT = (0, useAizaNFT_1.useAizaNFT)(!options.useBetaIndexer && isAizaContractAddress ? tokenId : undefined, options);
     let data = options.useBetaIndexer
         ? betaIndexerNFT
         : isAizaContractAddress

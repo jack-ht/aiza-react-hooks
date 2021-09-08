@@ -19,17 +19,16 @@
 1.  Import and use the hooks in your react:
 
     ```ts
-    import { useZNFT, useNFTMetadata } from '@htsoft/aiza-react-hooks';
+    import { useNFT, useNFTMetadata } from '@htsoft/aiza-react-hooks';
 
     function MyNFT() {
-      const { data } = useZNFT('20');
+      const { data } = useNFT('88');
       const { metadata } = useNFTMetadata(data && data.metadataURI);
 
       return (
         <div>
-          <h3>{metadata.title}</h3>
-          <p>{metadata.description}</p>
-          <p>Owned by: {data.owner.id}</p>
+          <p> { metadata.description } </p>
+          <p> Owned by: {data.owner.id } </p>
         </div>
       );
     }
@@ -45,17 +44,9 @@
 
 1.  Network configuration is wrapped by `NFTFetchConfiguration` component.
 
-    ```ts
-    import {Networks, NFTFetchConfiguration} from '@htsoft/aiza-react-hooks';
-
-       function NFTGallery() {
-         return (
-           <NFTFetchConfiguration network={Networks.MAINNET}>
-             <NFTList>
-           </NFTFetchConfiguration>
-         );
-       }
-    ```
+      ```ts
+      import { NFTFetchConfiguration } from '@htsoft/aiza-react-hooks';
+      ```
 
 ## Data is fetched from:
 
