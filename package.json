@@ -1,7 +1,7 @@
 {
   "name": "@htsoft/aiza-react-hooks",
   "version": "0.1.0",
-  "description": "Generic Rendering Component for zNFTs",
+  "description": "NFT information hepler for ReactJS",
   "repository": "https://github.com/jack-ht/aiza-react-hooks",
   "homepage": "https://github.com/jack-ht/aiza-react-hooks#README",
   "author": "Aiza",
