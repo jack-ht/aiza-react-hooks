@@ -16,10 +16,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "publish": "npm publish --access public",
-    "publish-prerelease": "npm publish --access public --tag=pre-release"
-  },
   "dependencies": {
     "@ethersproject/address": "^5.4.0",
     "big.js": "^6.1.0",
