@@ -50,9 +50,9 @@
 
 ## Data is fetched from:
 
-1. TheGraph for auction information, zNFT information, and currency information
-1. Direct metadata URIs for zNFT metadata
-1. Opensea for non-aiza tracked NFTs
+1. TheGraph for auction information, NFT information and currency information
+1. Direct metadata URIs for NFT metadata
+1. Opensea tracked NFTs
    <br/>
 
 # Development:
