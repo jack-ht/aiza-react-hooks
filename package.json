@@ -2,7 +2,10 @@
   "name": "@htsoft/aiza-react-hooks",
   "version": "0.1.0",
   "description": "NFT information hepler for ReactJS",
-  "repository": "https://github.com/jack-ht/aiza-react-hooks",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jack-ht/aiza-react-hooks.git"
+  },
   "homepage": "https://github.com/jack-ht/aiza-react-hooks#README",
   "author": "Aiza",
   "license": "MIT",
@@ -15,7 +18,7 @@
   ],
   "scripts": {
     "publish": "npm publish --access public",
-    "publish-prerelease" : "npm publish --access public --tag=pre-release"
+    "publish-prerelease": "npm publish --access public --tag=pre-release"
   },
   "dependencies": {
     "@ethersproject/address": "^5.4.0",
@@ -41,5 +44,18 @@
   "prettier": {
     "singleQuote": true,
     "printWidth": 90
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jack-ht/aiza-react-hooks/issues"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "Aiza",
+    "GameFi",
+    "NFT",
+    "Play2Earn",
+    "Dapp",
+    "SmartContract",
+    "BlockChain"
+  ]
 }
