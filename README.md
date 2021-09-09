@@ -54,30 +54,3 @@
 1. Direct metadata URIs for NFT metadata
 1. Opensea tracked NFTs
    <br/>
-
-# Development:
-
-1. Clone source
-   ```bash
-   git clone https://github.com/AizaNFT/base-react-hooks.git
-   ```
-1. Install dependencies
-   ```bash
-   yarn
-   ```
-1. Build package
-   ```
-   yarn build
-   ```
-1. Test UT
-   ```
-   yarn test
-   ```
-1. Update graphQL (Optional)
-   ```
-   yarn update-schemas
-   ```
-1. Regenerate types (Optional)
-   ```
-   yarn gen-types
-   ```
