@@ -4,7 +4,6 @@ exports.MediaFetchAgent = void 0;
 const tslib_1 = require("tslib");
 const dataloader_1 = (0, tslib_1.__importDefault)(require("dataloader"));
 const graphql_request_1 = require("graphql-request");
-const address_1 = require("@ethersproject/address");
 const RequestError_1 = require("./RequestError");
 const urls_1 = require("../constants/urls");
 const aiza_graph_1 = require("../graph-queries/aiza-graph");
@@ -13,7 +12,6 @@ const timeouts_1 = require("../constants/timeouts");
 const TransformFetchResults_1 = require("./TransformFetchResults");
 const FetchWithTimeout_1 = require("./FetchWithTimeout");
 const OpenseaUtils_1 = require("./OpenseaUtils");
-const aiza_indexer_1 = require("../graph-queries/aiza-indexer");
 /**
  * Internal agent for NFT Hooks to fetch NFT information.
  * Can be used directly for interaction with non-react web frameworks or server frameworks.
@@ -29,7 +27,6 @@ class MediaFetchAgent {
             currencyLoader: new dataloader_1.default((keys) => this.fetchCurrenciesGraph(keys), {
                 cache: false,
             }),
-            aizaNFTIndexerLoader: new dataloader_1.default((keys) => this.fetchAizaNFTIndexerNFTs(keys)),
             usernameLoader: new dataloader_1.default((keys) => this.fetchAizaUsernames(keys)),
             genericNFTLoader: new dataloader_1.default((keys) => this.fetchGenericNFT(keys), {
                 cache: false,
@@ -136,68 +133,6 @@ class MediaFetchAgent {
         const medias = [...response.creator, ...response.owner, ...response.id];
         return medias.map((media) => (0, TransformFetchResults_1.transformMediaItem)(media, this.networkId));
     }
-    // Alpha: uses aiza indexer
-    // format CONTRACT_ID-TOKEN_ID
-    async fetchAizaNFTIndexerNFTs(keys) {
-        const fetchWithTimeout = new FetchWithTimeout_1.FetchWithTimeout(this.timeouts.AizaIndexer);
-        const client = new graphql_request_1.GraphQLClient(urls_1.INDEXER_URL[this.networkId], {
-            fetch: fetchWithTimeout.fetch,
-        });
-        const response = await client.request(aiza_indexer_1.BY_IDS, {
-            ids: keys,
-        });
-        return keys.map((key) => response.Token.find((token) => token.id === key) ||
-            new Error('Did not find token'));
-    }
-    async loadAizaNFTIndexerNFTUntransformed(contractAddress, tokenId) {
-        return this.loaders.aizaNFTIndexerLoader.load(`${(0, address_1.getAddress)(contractAddress)}-${tokenId}`);
-    }
-    async loadAizaNFTIndexerNFTsUntransformed(tokenAndIds) {
-        return this.loaders.aizaNFTIndexerLoader.loadMany(tokenAndIds);
-    }
-    /**
-     * Un-batched fetch function to fetch a group of NFT data from the aiza indexer
-     *
-     * @param ids list of ids to query
-     * @param type type of ids: creator, id (of media), owner
-     * @returns
-     */
-    async fetchAizaIndexerGroupData({ collectionAddress, curatorAddress, limit = 120, offset = 0, }) {
-        if (!collectionAddress && !curatorAddress) {
-            throw new Error('Needs to have at least one curator or collector');
-        }
-        const fetchWithTimeout = new FetchWithTimeout_1.FetchWithTimeout(this.timeouts.AizaIndexer);
-        const client = new graphql_request_1.GraphQLClient(urls_1.INDEXER_URL[this.networkId], {
-            fetch: fetchWithTimeout.fetch,
-        });
-        const response = await client.request(aiza_indexer_1.ACTIVE_AUCTIONS_QUERY, {
-            addresses: collectionAddress ? [(0, address_1.getAddress)(collectionAddress)] : [],
-            curators: curatorAddress ? [(0, address_1.getAddress)(curatorAddress)] : [],
-            offset,
-            limit,
-        });
-        return response.Token;
-    }
-    /**
-     * Un-batched fetch function to fetch a group of NFT data from the aiza indexer
-     *
-     * @param ids list of ids to query
-     * @param type type of ids: creator, id (of media), owner
-     * @returns
-     */
-    async fetchAizaIndexerUserOwnedNFTs({ collectionAddress, userAddress, offset = 0, limit = 250, }) {
-        const fetchWithTimeout = new FetchWithTimeout_1.FetchWithTimeout(this.timeouts.AizaIndexer);
-        const client = new graphql_request_1.GraphQLClient(urls_1.INDEXER_URL[this.networkId], {
-            fetch: fetchWithTimeout.fetch,
-        });
-        const response = await client.request(aiza_indexer_1.BY_OWNER, {
-            address: (0, address_1.getAddress)(collectionAddress),
-            owner: (0, address_1.getAddress)(userAddress),
-            offset,
-            limit,
-        });
-        return response.Token;
-    }
     /**
      * Get on-chain AIZA NFT ID associated media information
      *
@@ -238,10 +173,6 @@ class MediaFetchAgent {
     }
     async loadAuctionInfo(tokenContract, tokenId) {
         return await this.loaders.auctionInfoLoader.load([tokenContract.toLowerCase(), tokenId].join('-'));
-    }
-    // use dash between lowercase contract id and token id
-    async loadAuctionInfos(tokenContractAndIds) {
-        return await this.loaders.auctionInfoLoader.loadMany(tokenContractAndIds);
     }
     /**
      *
@@ -385,7 +316,6 @@ class MediaFetchAgent {
      * @throws RequestError
      */
     async fetchIPFSMetadata(url) {
-        // TODO(iain): Properly parse metadata from `jack-ht/media-metadata-schemas
         const request = await new FetchWithTimeout_1.FetchWithTimeout(this.timeouts.IPFS, 'application/json').fetch(url);
         try {
             return await request.json();

@@ -1,10 +1,8 @@
 import type { NetworkIDs } from '../constants/networks';
 import type { ReserveAuctionPartialFragment } from '../graph-queries/aiza-graph-types';
-import { TokenWithAuctionFragment } from '../graph-queries/aiza-indexer-types';
 import { FetchGroupTypes, MediaContentType, UsernameResponseType } from './FetchResultTypes';
 import { CurrencyLookupType, NFTDataType, ZNFTMediaDataType } from './AuctionInfoTypes';
 import { OpenseaResponse } from './OpenseaUtils';
-import { FetchAizaIndexerListCollectionType } from './AizaIndexerTypes';
 /**
  * Internal agent for NFT Hooks to fetch NFT information.
  * Can be used directly for interaction with non-react web frameworks or server frameworks.
@@ -49,30 +47,6 @@ export declare class MediaFetchAgent {
      * @returns
      */
     fetchZNFTGroupData(ids: string[], type: FetchGroupTypes): Promise<ZNFTMediaDataType[]>;
-    fetchAizaNFTIndexerNFTs(keys: readonly string[]): Promise<any[]>;
-    loadAizaNFTIndexerNFTUntransformed(contractAddress: string, tokenId: string): Promise<TokenWithAuctionFragment>;
-    loadAizaNFTIndexerNFTsUntransformed(tokenAndIds: readonly string[]): Promise<(Error | TokenWithAuctionFragment)[]>;
-    /**
-     * Un-batched fetch function to fetch a group of NFT data from the aiza indexer
-     *
-     * @param ids list of ids to query
-     * @param type type of ids: creator, id (of media), owner
-     * @returns
-     */
-    fetchAizaIndexerGroupData({ collectionAddress, curatorAddress, limit, offset, }: FetchAizaIndexerListCollectionType): Promise<TokenWithAuctionFragment[]>;
-    /**
-     * Un-batched fetch function to fetch a group of NFT data from the aiza indexer
-     *
-     * @param ids list of ids to query
-     * @param type type of ids: creator, id (of media), owner
-     * @returns
-     */
-    fetchAizaIndexerUserOwnedNFTs({ collectionAddress, userAddress, offset, limit, }: {
-        collectionAddress: string;
-        userAddress: string;
-        offset?: number;
-        limit?: number;
-    }): Promise<TokenWithAuctionFragment[]>;
     /**
      * Get on-chain AIZA NFT ID associated media information
      *
@@ -84,7 +58,6 @@ export declare class MediaFetchAgent {
     loadNFTDataUntransformed(contractAddress: string, tokenId: string): Promise<OpenseaResponse>;
     loadZNFTDataUntransformed(mediaId: string): Promise<ZNFTMediaDataType>;
     loadAuctionInfo(tokenContract: string, tokenId: string): Promise<ReserveAuctionPartialFragment>;
-    loadAuctionInfos(tokenContractAndIds: readonly string[]): Promise<(Error | ReserveAuctionPartialFragment)[]>;
     /**
      *
      * @param address string address of username to load

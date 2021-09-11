@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RequestError = exports.FetchStaticData = exports.DataTransformers = exports.Networks = exports.AuctionStateInfo = exports.AuctionType = exports.MediaFetchAgent = exports.NFTFetchConfiguration = exports.useAizaUsername = exports.useOpenseaNFT = exports.useNFTIndexerQuery = exports.useNFTIndexer = exports.useAizaNFTGroup = exports.useAizaNFT = exports.useNFTMetadata = exports.useNFTContent = exports.useNFT = exports.useAuctions = void 0;
+exports.RequestError = exports.FetchStaticData = exports.DataTransformers = exports.Networks = exports.AuctionStateInfo = exports.AuctionType = exports.MediaFetchAgent = exports.NFTFetchConfiguration = exports.useAizaUsername = exports.useOpenseaNFT = exports.useAizaNFTGroup = exports.useAizaNFT = exports.useNFTMetadata = exports.useNFTContent = exports.useNFT = exports.useAuctions = void 0;
 const tslib_1 = require("tslib");
 const networks_1 = require("./constants/networks");
 Object.defineProperty(exports, "Networks", { enumerable: true, get: function () { return networks_1.Networks; } });
@@ -34,7 +34,3 @@ const RequestError_1 = require("./fetcher/RequestError");
 Object.defineProperty(exports, "RequestError", { enumerable: true, get: function () { return RequestError_1.RequestError; } });
 const useAizaNFTGroup_1 = require("./hooks/useAizaNFTGroup");
 Object.defineProperty(exports, "useAizaNFTGroup", { enumerable: true, get: function () { return useAizaNFTGroup_1.useAizaNFTGroup; } });
-const useNFTIndexer_1 = require("./hooks/useNFTIndexer");
-Object.defineProperty(exports, "useNFTIndexer", { enumerable: true, get: function () { return useNFTIndexer_1.useNFTIndexer; } });
-const useNFTIndexerQuery_1 = require("./hooks/useNFTIndexerQuery");
-Object.defineProperty(exports, "useNFTIndexerQuery", { enumerable: true, get: function () { return useNFTIndexerQuery_1.useNFTIndexerQuery; } });

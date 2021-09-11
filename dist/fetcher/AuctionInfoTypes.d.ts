@@ -2,7 +2,6 @@ import { AskPriceFragment, BidDataPartialFragment, CurrencyShortFragment, Curren
 import { ChainCurrencyType, NFTResultType, ReserveAuctionBidsWithCurrency } from '../fetcher/FetchResultTypes';
 import { AuctionStateInfo } from './AuctionState';
 import { OpenseaResponse } from './OpenseaUtils';
-import { TokenWithAuctionFragment } from '../graph-queries/aiza-indexer-types';
 export declare type PricingInfo = {
     currency: CurrencyShortFragment;
     amount: string;
@@ -75,12 +74,7 @@ export declare type ZNFTDataType = Omit<ZNFTMediaDataType, 'pricing'> & {
 export declare type OpenseaNFTDataType = Omit<OpenseaNFTMediaDataType, 'pricing'> & {
     pricing: PricingInfoData;
 };
-export declare type IndexerDataType = Omit<CommonNFTMediaDataType, 'pricing'> & {
-    aizaIndexerResponse: TokenWithAuctionFragment;
-    aizaNFT?: AizaNFTType;
-    pricing: PricingInfoData;
-};
-export declare type NFTDataType = ZNFTDataType | OpenseaNFTDataType | IndexerDataType;
+export declare type NFTDataType = ZNFTDataType | OpenseaNFTDataType;
 export declare type CurrencyLookupType = {
     [currencyId: string]: ChainCurrencyType;
 };

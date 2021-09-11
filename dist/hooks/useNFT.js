@@ -6,7 +6,6 @@ const NFTFetchContext_1 = require("../context/NFTFetchContext");
 const useOpenseaNFT_1 = require("./useOpenseaNFT");
 const addresses_1 = require("../constants/addresses");
 const useAizaNFT_1 = require("./useAizaNFT");
-const useNFTIndexer_1 = require("./useNFTIndexer");
 /**
  * Fetches on-chain NFT data and pricing for the given zNFT id
  *
@@ -21,14 +20,11 @@ function useNFT(contractAddress, tokenId, options = {}) {
         contractAddress = addresses_1.AIZA_MEDIA_CONTRACT_BY_NETWORK[fetcher.networkId];
     }
     const isAizaContractAddress = contractAddress === addresses_1.AIZA_MEDIA_CONTRACT_BY_NETWORK[fetcher.networkId];
-    const openseaNFT = (0, useOpenseaNFT_1.useOpenseaNFT)(!options.useBetaIndexer && !isAizaContractAddress ? contractAddress : undefined, !options.useBetaIndexer && !isAizaContractAddress ? tokenId : undefined, options);
-    const betaIndexerNFT = (0, useNFTIndexer_1.useNFTIndexer)(options.useBetaIndexer ? contractAddress : undefined, options.useBetaIndexer ? tokenId : undefined, options);
-    const aizaNFT = (0, useAizaNFT_1.useAizaNFT)(!options.useBetaIndexer && isAizaContractAddress ? tokenId : undefined, options);
-    let data = options.useBetaIndexer
-        ? betaIndexerNFT
-        : isAizaContractAddress
-            ? aizaNFT
-            : openseaNFT;
+    const openseaNFT = (0, useOpenseaNFT_1.useOpenseaNFT)(!isAizaContractAddress ? contractAddress : undefined, !isAizaContractAddress ? tokenId : undefined, options);
+    const aizaNFT = (0, useAizaNFT_1.useAizaNFT)(isAizaContractAddress ? tokenId : undefined, options);
+    let data = isAizaContractAddress
+        ? aizaNFT
+        : openseaNFT;
     return {
         currencyLoaded: !!data.currencyLoaded,
         error: data.error,

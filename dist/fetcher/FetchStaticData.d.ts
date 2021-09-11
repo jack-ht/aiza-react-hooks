@@ -1,7 +1,5 @@
-import { TokenWithAuctionFragment } from '../graph-queries/aiza-indexer-types';
 import { FetchGroupTypes } from './FetchResultTypes';
 import { MediaFetchAgent } from './MediaFetchAgent';
-import { FetchAizaIndexerItemType, FetchAizaIndexerListCollectionType } from './AizaIndexerTypes';
 /**
  * This removes undefined values to sanitize
  * data objects to work with nextJS server-side
@@ -52,63 +50,6 @@ export declare const fetchZNFTGroupData: ({ ids, type, fetchAgent, prepareDataJS
     aizaNFT: Omit<import("../graph-queries/aiza-graph-types").NftMediaFragment, "id" | "owner" | "creator" | "currentAsk" | "currentBids"> & {
         creatorBidSharePercentage: number;
         ownerBidSharePercentage: number;
-    };
-}[]>;
-/**
- * Server-side initial data hook for aiza nft indexer response data
- *
- * @param fetchAgent FetchAgent class
- * @param listOptions Options of what objects to list (limited to contract address at the moment)
- *    has limit and offset fields
- * @param prepareDataJson prepare data for vercel static prop passing by cleaning up invalid JSON objects
- */
-export declare const fetchAizaIndexerList: (fetchAgent: MediaFetchAgent, listOptions: FetchAizaIndexerListCollectionType, prepareDataJson?: boolean) => Promise<{
-    nft: {
-        tokenData: TokenWithAuctionFragment;
-        auctionData: import("../graph-queries/aiza-graph-types").ReserveAuctionPartialFragment | undefined;
-    };
-}[]>;
-export declare const getIndexerServerTokenInfo: ({ nft: { tokenData }, }: {
-    nft: {
-        tokenData: TokenWithAuctionFragment;
-    };
-}) => {
-    tokenId: string;
-    tokenContract: string;
-    metadata: any;
-    image: any;
-};
-/**
- * Server-side initial data hook for aiza nft indexer response data
- *
- * @param fetchAgent FetchAgent class
- * @param listOptions Options of what objects to list (limited to contract address at the moment)
- *    has limit and offset fields
- * @param prepareDataJson prepare data for vercel static prop passing by cleaning up invalid JSON objects
- */
-export declare const fetchAizaIndexerItem: (fetchAgent: MediaFetchAgent, listOptions: FetchAizaIndexerItemType, prepareDataJson?: boolean) => Promise<{
-    nft: {
-        tokenData: TokenWithAuctionFragment;
-        auctionData: import("../graph-queries/aiza-graph-types").ReserveAuctionPartialFragment | undefined;
-    };
-}>;
-/**
- * Server-side initial data hook for aiza nft indexer response data
- *
- * @param fetchAgent FetchAgent class
- * @param listOptions Options of what objects to list (limited to contract address at the moment)
- *    has limit and offset fields
- * @param prepareDataJson prepare data for vercel static prop passing by cleaning up invalid JSON objects
- */
-export declare const fetchUserOwnedNFTs: (fetchAgent: MediaFetchAgent, { collectionAddress, userAddress, offset, limit, }: {
-    collectionAddress: string;
-    userAddress: string;
-    offset?: number | undefined;
-    limit?: number | undefined;
-}, prepareDataJson?: boolean) => Promise<{
-    nft: {
-        tokenData: TokenWithAuctionFragment;
-        auctionData: import("../graph-queries/aiza-graph-types").ReserveAuctionPartialFragment | undefined;
     };
 }[]>;
 export {};

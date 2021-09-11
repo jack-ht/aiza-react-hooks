@@ -8,7 +8,6 @@ declare type OptionsType = {
     refreshInterval?: number;
     initialData?: any;
     loadCurrencyInfo?: boolean;
-    useBetaIndexer?: boolean;
 };
 /**
  * Fetches on-chain NFT data and pricing for the given zNFT id

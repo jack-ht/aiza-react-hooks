@@ -1,9 +1,6 @@
 export declare const THEGRAPH_API_URL: {
     [x: string]: string;
 };
-export declare const INDEXER_URL: {
-    [x: string]: string;
-};
 export declare const THEGRAPH_UNISWAP_URL: {
     [x: string]: string;
 };

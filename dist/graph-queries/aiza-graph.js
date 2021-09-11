@@ -15,7 +15,6 @@ const MEDIA_PARTIALS = (0, graphql_request_1.gql) `
   fragment NFTMedia on Media {
     id
     creatorBidShare
-    ownerBidShare
     owner {
       id
     }

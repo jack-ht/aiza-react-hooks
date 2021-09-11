@@ -46,12 +46,11 @@ function transformMediaItem(media, networkId) {
             contentURI: nft.contentURI,
             contentHash: nft.contentHash,
             creatorBidShare: nft.creatorBidShare,
-            ownerBidShare: nft.ownerBidShare,
             createdAtTimestamp: nft.createdAtTimestamp,
             creatorBidSharePercentage: new big_js_1.default(nft.creatorBidShare)
                 .div(new big_js_1.default(10).pow(18))
                 .toNumber(),
-            ownerBidSharePercentage: new big_js_1.default(nft.ownerBidShare)
+            ownerBidSharePercentage: new big_js_1.default(nft.creatorBidShare) // ownerBidShare --> creatorBidShare
                 .div(new big_js_1.default(10).pow(18))
                 .toNumber(),
         },

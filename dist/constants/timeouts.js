@@ -6,5 +6,4 @@ exports.DEFAULT_NETWORK_TIMEOUTS_MS = {
     Graph: 5 * 1000,
     IPFS: 10 * 1000,
     OpenSea: 8 * 1000,
-    AizaIndexer: 2 * 1000,
 };

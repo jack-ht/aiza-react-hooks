@@ -15,6 +15,4 @@ import * as DataTransformers from './fetcher/DataTransformers';
 import * as FetchStaticData from './fetcher/FetchStaticData';
 import { RequestError } from './fetcher/RequestError';
 import { useAizaNFTGroup } from './hooks/useAizaNFTGroup';
-import { useNFTIndexer } from './hooks/useNFTIndexer';
-import { useNFTIndexerQuery } from './hooks/useNFTIndexerQuery';
-export { useAuctions, useNFT, useNFTContent, useNFTMetadata, useAizaNFT, useAizaNFTGroup, useNFTIndexer, useNFTIndexerQuery, useOpenseaNFT, useAizaUsername, useNFTContentType, useNFTMetadataType, useNFTType, useOpenseaNFTType, useZNFTType, PricingInfo, NFTFetchConfiguration, MediaFetchAgent, AuctionResultType, AuctionType, AuctionStateInfo, NFTDataType, ChainCurrencyType, Networks, NetworkIDs, DataTransformers, FetchStaticData, RequestError, };
+export { useAuctions, useNFT, useNFTContent, useNFTMetadata, useAizaNFT, useAizaNFTGroup, useOpenseaNFT, useAizaUsername, useNFTContentType, useNFTMetadataType, useNFTType, useOpenseaNFTType, useZNFTType, PricingInfo, NFTFetchConfiguration, MediaFetchAgent, AuctionResultType, AuctionType, AuctionStateInfo, NFTDataType, ChainCurrencyType, Networks, NetworkIDs, DataTransformers, FetchStaticData, RequestError, };

@@ -11,7 +11,6 @@ export declare type MediaContentType = {
     mimeType: string;
 };
 export declare type FetchGroupTypes = 'id' | 'creator' | 'owner';
-export declare type AizaFetchQueryType = 'creator' | 'owner' | 'creator' | 'collection';
 declare type MetadataIsh = {
     mimeType: string;
     name: string;

@@ -301,7 +301,7 @@ export declare type Currency = {
     symbol: Scalars['String'];
     /** The decimals of the Currency */
     decimals?: Maybe<Scalars['Int']>;
-    /** Total Bid Liquidity of the Currency on all Aiza Media */
+    /** Total Bid Liquidity of the Currency on all Media */
     liquidity: Scalars['BigInt'];
     /** The active Bids denominated in the Currency */
     activeBids?: Maybe<Array<Bid>>;
@@ -1336,7 +1336,7 @@ export declare type ReserveAuction = {
     tokenId: Scalars['BigInt'];
     /** <tokenContract>-<tokenId> */
     token: Scalars['String'];
-    /** The media for the auction, if it is a aiza NFT */
+    /** The media for the auction, if it is a NFT */
     media?: Maybe<Media>;
     /** Whether or not the auction has been approved by the curator */
     approved: Scalars['Boolean'];
@@ -2287,7 +2287,7 @@ export declare type AskPriceFragment = ({
 });
 export declare type NftMediaFragment = ({
     __typename?: 'Media';
-} & Pick<Media, 'id' | 'creatorBidShare' | 'ownerBidShare' | 'createdAtTimestamp' | 'metadataURI' | 'metadataHash' | 'contentURI' | 'contentHash'> & {
+} & Pick<Media, 'id' | 'creatorBidShare' | 'createdAtTimestamp' | 'metadataURI' | 'metadataHash' | 'contentURI' | 'contentHash'> & {
     owner: ({
         __typename?: 'User';
     } & Pick<User, 'id'>);
